@@ -1,12 +1,18 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 app=Flask(__name__)
 
 todo=["Eat cake","Workout"]
 
 
-@app.route('/',methods=['Get','Post'])
+@app.route('/',methods=['GET','POST'])
 def index():
-    new_todo=request.form["new_todo"]
-    todo.append(new_todo)
+    if request.method=='POST':
+        new_todo=request.form["new_todo"]
+        todo.append(new_todo)
+
     return render_template("todo.html.jinja", my_todos=todo)
+@app.route('/delete_todo/<int:todo_index>',methods=['POST'])
+def todo_delete(todo_index):
+    del todo[todo_index]
+    return redirect('/')

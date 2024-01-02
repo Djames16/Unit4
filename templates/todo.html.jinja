@@ -10,14 +10,19 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
-<body class ="container mx-auto" style="background-color: #d6b88a;">
-  <h1 class ="text-center" style="color: black;">Todo Application</h1>
+<body class ="container mx-auto" style="background-color: red;">
+  <h1 class ="text-center" style="color: yellow;">Todo Application</h1>
   <ul class="card p-4">
      {% for x in my_todos %}
-      <li>{{x}}</LI>
+      <li>
+       {{x}}
+       <form method="POST" action="/delete_todo/{{loop.index0}}">
+        <input type="submit" value="Delete">
+       </form>
+      </li>
      {% endfor %}
 </ul>
-<form>
+<form method="POST">
 <input name="new_todo">
 <input type="submit">
 </form>
