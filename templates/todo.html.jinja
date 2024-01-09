@@ -15,8 +15,8 @@
   <ul class="card p-4">
      {% for x in my_todos %}
       <li>
-       {{x}}
-       <form method="POST" action="/delete_todo/{{loop.index0}}">
+       {{x['description']}}
+       <form method="POST" action="/delete_todo/{{x['id']}}">
         <input type="submit" value="Delete">
        </form>
       </li>
