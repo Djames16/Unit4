@@ -27,9 +27,11 @@
         <input type="submit" value="Delete" class="btn btn-danger">
        </form>
        {%if x['complete']%}🏁{%endif%}
+       {%if x['complete']==0%}
        <form method="POST" action="/complete_todo/{{x['id']}}" class="d-inline">
         <input type="submit" value="Mark Complete" class="btn btn-success">
        </form>
+       {%endif%}
       </li>
      {% endfor %}
 </ul>
