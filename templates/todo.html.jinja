@@ -10,16 +10,18 @@
   <style>
     .complete {
       text-decoration: line-through;
+      color: purple;
     }
 
     .btn{
       float: right;
     }
+
   </style>
 </head>
 <body class ="container mx-auto" style="background-color: purple;">
   <h1 class ="text-center" style="color: yellow;">Todo Application</h1>
-  <ul class="card p-4">
+  <ul class="card p-4" style="background-color: yellow;">
      {% for x in my_todos %}
       <li class="{%if x['complete']%}complete{%endif%}">
        {{x['description']}}
